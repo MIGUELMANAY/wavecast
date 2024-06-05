@@ -1,0 +1,37 @@
+.seccion{
+    display: grid; /*activa display grid*/
+    align-items: end;/*alineamos los items, en este caso el titulo reproducidos recientemente al final de la grilla*/
+    row-gap: 2rem; /*aplica un espaciado entre grilla*/
+}
+.seccion-horizontal .seccion-vertical{
+    grid-template-rows: 70px auto; /*asignamos altura del titulo y al tamaño de las tarjetas*/
+}
+
+.seccion-horizontal .seccion__tarjetas{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(40%,350px),1fr));
+    gap:1.25rem;
+}
+
+.seccion-vertical{
+    grid-template-columns: 1fr auto;
+}
+
+.seccion-vertical .seccion__tarjetas{
+    display: grid;
+    grid-auto-flow: column;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    grid-column: 1/3; /*para que abarque todos las columnas creadas*/
+    column-gap: 1.25rem;
+} 
+
+.seccion-vertical .seccion-horizontal .tarjeta a{
+    display:flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.seccion-vertical .seccion__tarjetas .tarjeta__titulo{
+    flex-grow: 1;
+}
